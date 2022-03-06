@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#define tamanho 6
+
+struct tfila {
+int dados[tamanho];
+int ini;
+int fim;
+};
+
+
+struct tfila fila;
+int op;
+
+
+void fila_entrada();
+void fila_saida();
+void fila_exibir();
+void menu_exibir();
+
+
+int main(){
+setlocale(LC_ALL, "Portuguese");
+	op = 1;
+	fila.ini = 0;
+	fila.fim = 0;
+
+	while (op != 0) {
+	system("cls");
+	printf("\n");
+	printf("   FILA\t");
+	fila_exibir();
+	menu_exibir();
+
+	scanf("%d", &op);
+		switch (op) {
+		case 1:
+		fila_entrada();
+		break;
+		case 2:
+		fila_saida();
+		break;
+		}
+	}
+	return(0);
+	}
+    //Adicionar um elemento na Fila
+	void fila_entrada(){
+		if (fila.fim == tamanho) {
+		printf("\nA fila está cheia!\n\n");
+		system("pause");
+		}
+		else {
+		printf("\nDigite um valor a ser inserido: ");
+		scanf("%d", &fila.dados[fila.fim]);
+		fila.fim++;
+	}
+}
+
+		//Retirar elemento da Fila
+		void fila_saida() {
+		if (fila.ini == fila.fim) {
+		printf("\nA fila esta vazia!\n\n");
+		system("pause");
+		}
+		else {
+		int i;
+		for (i = 0; i < tamanho; i++) {
+		fila.dados[i] = fila.dados[i+1];
+		}
+		fila.dados[fila.fim] = 0;
+		fila.fim--;
+		}
+	}
+
+        //Mostrar o conteúdo da Fila
+		void fila_exibir() {
+		int i;
+		printf("[  ");
+ 		for (i = 0; i < tamanho; i++) {
+  		printf("%d  ", fila.dados[i]);
+  		 }
+   		printf("]\n\n");
+   	}
+
+    //Mostrar o menu de opções
+	void menu_exibir() {
+
+	printf("   ---------------------------------\n" );
+	printf("   -      Escolha uma opção:       -\n");
+	printf("   ---------------------------------\n" );
+	printf("   -                               -\n" );
+	printf("   - 1 - Incluir conteudo na Fila  -\n");
+	printf("   - 2 - Excluir conteudo da Fila  -\n");
+	printf("   - 0 - Sair                      -\n");
+	printf("   -                               -\n" );
+	printf("   ---------------------------------\n\n" );
+	printf("   Digite Opção:" );
+	}
