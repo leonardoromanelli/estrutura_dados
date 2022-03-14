@@ -1,0 +1,78 @@
+#include<iostream>
+#include<stdlib.h>
+
+#define MAX_SIZE 5
+
+using namespace std;
+
+//declaracao das variaves
+int main() {
+    int item, escolher, i;
+    int A_Pilha[MAX_SIZE];
+    int top = 0;
+    int sair = 1;
+
+    setlocale(LC_ALL, "Portuguese"); //Setando a linguagem
+
+do {
+               //desenhando o menu
+cout << " ################################################################################## " <<endl;
+cout << " #                              Estrutura de Dados                                # " <<endl;
+cout << " #                      Atividade 03 - Pilha Simples em C++                       # " <<endl;
+cout << " #                         Leonardo Romanelli Guimaraes                           # " <<endl;
+cout << " ################################################################################## " <<endl;
+cout << " #                                                                                # " <<endl;
+cout << " #      Menu Principal                                                            # " <<endl;
+cout << " #                                                                                # " <<endl;
+cout << " #     1.Incluir                                                                  # " <<endl;
+cout << " #     2.Excluir                                                                  # " <<endl;
+cout << " #     3.Mostrar                                                                  # " <<endl;
+cout << " #     4.Sair                                                                     # " <<endl;
+cout << " #                                                                                # " <<endl;
+cout << " ################################################################################## " <<endl <<endl;
+cout << "  Digite a Opcao :";
+
+        cin>>escolher;
+        switch (escolher) {
+            case 1:     // case 1 incluindo itens na pilha
+                system("cls");
+                if (top == MAX_SIZE)
+                    cout << "\n-> A Pilha esta cheia!"<<endl <<endl;
+                else {
+                    cout << "\nDigite o valor a ser incluido: ";
+
+                    cin>>item;
+                    cout << "\n-> Posicao : " << top << ", Valor incluido  :" << item <<endl <<endl;
+                    A_Pilha[top++] = item;
+                }
+                break;
+            case 2:     // case 2 retirando itens da pilha
+                system("cls");
+                if (top == 0)
+                    cout << "\n-> A pilha esta vazia!"<<endl <<endl;
+                else {
+                        --top;
+                    cout << "\n-> Posicao : " << top << ", Valor retirado  :" << A_Pilha[top]<<endl <<endl;
+                }
+                break;
+            case 3:     // case 3 Mostra a pilha com todos os dados preenchidos
+                system("cls");
+                cout << "\n-> Tamanho da Pilha : " << top;
+                for (i = (top - 1); i >= 0; i--)
+                    cout << "\n-> Posicao : " << i << ", Valor  :" << A_Pilha[i];
+
+                printf("\n\n");
+                break;
+            case 4:    // case 4 Opcao sair
+                sair = 0;
+                break;
+
+            default:  // caso digite um outro numero retorne para o menu
+                system("cls");
+                escolher;
+                break;
+        }
+    } while (sair);
+
+    return 0;
+}
