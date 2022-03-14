@@ -18,7 +18,7 @@ do {
                //desenhando o menu
 cout << " ################################################################################## " <<endl;
 cout << " #                              Estrutura de Dados                                # " <<endl;
-cout << " #                      Atividade 03 - Pilha Simples em C++                       # " <<endl;
+cout << " #                         Atividade 03 - Pilha  em C++                           # " <<endl;
 cout << " #                         Leonardo Romanelli Guimaraes                           # " <<endl;
 cout << " ################################################################################## " <<endl;
 cout << " #                                                                                # " <<endl;
